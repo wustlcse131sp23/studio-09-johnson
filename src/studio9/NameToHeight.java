@@ -19,9 +19,13 @@ public class NameToHeight {
 	 */
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
-
-		// FIXME
-		throw new NotYetImplementedException();
-
+		String keyName = "";
+		Map<String, Integer> nameToHeight = new HashMap();
+		nameToHeight.put("Marcus", 6);
+		nameToHeight.put("Griffin", 4);
+		while(keyName != "quit") {
+			keyName = in.next();
+			System.out.println(nameToHeight.get(keyName));
+		}
 	}
 }

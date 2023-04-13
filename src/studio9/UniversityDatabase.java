@@ -1,26 +1,41 @@
 package studio9;
 
+import java.security.KeyStore.Entry;
+import java.util.HashMap;
+import java.util.Map;
+
 import assignment7.Student;
 
 public class UniversityDatabase {
-	//TODO: Complete this class according to the studio instructions
+	private final Map<String, Student> database;
+	
+	public UniversityDatabase() {
+		database = new HashMap<>();
+	}
 
 	public void addStudent(String accountName, Student student) {
-		// TODO
+		this.database.put(accountName, student);
 	}
 
 	public int getStudentCount() {
-		// TODO
-		return 0;
+		return this.database.size();
 	}
 
 	public String lookupFullName(String accountName) {
-		// TODO: Complete according to studio instructions
-		return null;
+		Student search = this.database.get(accountName);
+		if(search == null) {
+			return null;
+		}
+		else {
+			return search.getFullName();
+		}
 	}
 
 	public double getTotalBearBucks() {
-		// TODO
-		return 0.0;
+		double total = 0;
+		for(String i : this.database.keySet()) {
+			total += this.database.get(i).getBearBucksBalance();
+		}
+		return total;
 	}
 }
